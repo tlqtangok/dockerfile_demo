@@ -101,6 +101,9 @@ fi
 
 ### jd add 
 
+HISTSIZE=5000
+HISTFILESIZE=10000
+
 export CUDA_VERSION=10.0.130
 
 export CUDA_PKG_VERSION="10-0=$CUDA_VERSION-1"
@@ -111,6 +114,7 @@ export LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64
 export NVIDIA_VISIBLE_DEVICES=all
 export NVIDIA_DRIVER_CAPABILITIES="compute,utility"
 export NVIDIA_REQUIRE_CUDA="cuda>=10.0 brand=tesla,driver>=384,driver<385 brand=tesla,driver>=410,driver<411"
+export PATH=/mnt/jd/t/ana/bin:$PATH
 ###
 export perl_p=/root/t/perl_p
 export t=/root/t/t
