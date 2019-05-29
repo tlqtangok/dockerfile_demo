@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+#FROM nvidia/cuda:10.0-devel-ubuntu16.04
 
 MAINTAINER jd
 USER root
@@ -18,7 +19,7 @@ RUN echo "root:pw" | chpasswd
 
 RUN mkdir /root/.ssh && chmod 700 /root/.ssh 
 
-#RUN echo "StrictHostKeyChecking=no" >> /etc/ssh/ssh_config
+RUN echo "StrictHostKeyChecking=no" >> /etc/ssh/ssh_config
 RUN mkdir /var/run/sshd
 
 #Startup , just like COPY
@@ -28,13 +29,13 @@ RUN chmod +x /start.sh
 
 EXPOSE 22
 
-CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config"]
-# bld_docker.sh
+#CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config"]
 
+# bld_docker.sh
 
 # in following way, we can interrupt with CTRL + C
 
-#ENTRYPOINT ["/start.sh"]
-#CMD ["arg0", "arg1", "arg2"]
+ENTRYPOINT ["/start.sh"]
+CMD ["p0", "p1", "p2"]
 
 
