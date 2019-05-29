@@ -116,8 +116,9 @@ export NVIDIA_DRIVER_CAPABILITIES="compute,utility"
 export NVIDIA_REQUIRE_CUDA="cuda>=10.0 brand=tesla,driver>=384,driver<385 brand=tesla,driver>=410,driver<411"
 export PATH=/mnt/jd/t/ana/bin:$PATH
 ###
-export perl_p=/root/t/perl_p
-export t=/root/t/t
+export t=/root/jd/t
+export perl_p=/root/jd/perl_p
+
 alias s_b='source $perl_p/.bash_aliases'
 s_b
 cd $t

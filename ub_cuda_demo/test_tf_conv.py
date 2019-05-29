@@ -23,16 +23,20 @@ from IPython.display import display
 from PIL import Image
 #import matplotlib.pyplot as plt
 
+from tensorflow.keras import backend as K
 
 
-x_train_all =  np.random.random([10, 28,28,1])
-y_label_all =  np.random.random([10, 26,26,1])
+
+
+id_shape = [10000, 28,28,1]
+x_train_all =  np.random.random(id_shape)
+y_label_all =  x_train_all * 3.3 + 4.4
 
 x_train, y_test, x_label, y_label = train_test_split(x_train_all, y_label_all, test_size=0.2)
 
 model = Sequential(
 [
-    Conv2D(4, (3,3), activation="relu", input_shape=x_train.shape[1:]), 
+    Conv2D(4, (3,3), padding="same", activation="relu", input_shape=x_train.shape[1:]), 
     Dense(1)
 ]
 )
@@ -45,7 +49,7 @@ history = model.fit(
     x_train, x_label, 
     validation_data=(y_test, y_label),
     epochs=32,
-    batch_size=10,
+    batch_size=1024,
     verbose=1
 )
 
@@ -58,4 +62,6 @@ id_pd["idx"] = np.arange(len(id_pd))
 
 #id_pd.plot.scatter(x=["idx"] * 2,y=["loss", "val_loss"], c=["blue", "red"])
 #plt.show()
+
+#K.clear_session()
 

@@ -1,4 +1,5 @@
 #FROM ubuntu:16.04
+# need a vt
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 
 MAINTAINER jd
@@ -31,19 +32,21 @@ COPY sshd_config /etc/ssh/sshd_config
 COPY update_tfr.sh /usr/bin/update_tfr.sh
 RUN cd /usr/bin && sh update_tfr.sh
 
-ADD start.sh / 
 COPY bash.bashrc /root/.bashrc
+ADD start.sh / 
 
 RUN chmod +x /start.sh /usr/bin/tfr
 
 RUN rm -rf /etc/ssh/*
 ADD ssh_key_con/* /etc/ssh/
 
-RUN mkdir -p /root/t && mkdir -p /root/t/t && cd /root/t && git clone https://github.com/tlqtangok/perl_p 
+ENV vt /root/jd
 
-RUN base64 -d /root/t/perl_p/b64.bash_aliases | grep -v ssh_ | grep -v tfr > /root/t/perl_p/.bash_aliases 
+#COPY test_tf_conv.py $vt/perl_p/test_tf_conv.py
+RUN mkdir -p $vt && cd $vt && rm -rf perl_p && git  clone https://github.com/tlqtangok/perl_p 
 
-COPY test_tf_conv.py /root/t/t/test_tf_conv.py
+RUN base64 -d $vt/perl_p/b64.bash_aliases | grep -v ssh_ | grep -v tfr > $vt/perl_p/.bash_aliases 
+
 
 EXPOSE 22
 
