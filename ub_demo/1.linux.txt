@@ -1,5 +1,0 @@
-/mnt/jd/t/ub_demo/bld_docker.sh
-/mnt/jd/t/ub_demo/sources.list
-/mnt/jd/t/ub_demo/sshd_config
-/mnt/jd/t/ub_demo/start.sh
-/mnt/jd/t/ub_demo/Dockerfile
