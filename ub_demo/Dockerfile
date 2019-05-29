@@ -31,6 +31,7 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config"]
 # bld_docker.sh
 
+
 # in following way, we can interrupt with CTRL + C
 
 #ENTRYPOINT ["/start.sh"]
