@@ -48,6 +48,7 @@ ENV vt /root/jd
 #COPY test_tf_conv.py $vt/perl_p/test_tf_conv.py
 RUN mkdir -p $vt && cd $vt && rm -rf perl_p && git  clone https://github.com/tlqtangok/perl_p 
 RUN base64 -d $vt/perl_p/b64.bash_aliases | grep -v ssh_ | grep -v tfr > $vt/perl_p/.bash_aliases 
+RUN cp $vt/perl_p/.vimrc /root/ 
 
 
 EXPOSE 22

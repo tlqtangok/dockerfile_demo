@@ -1,4 +1,4 @@
-export VERSION=v22
+export VERSION=v23
 # docker build -t ub_sshd:$VERSION .
 docker build -t ub_cuda_sshd:$VERSION .
 
