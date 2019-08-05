@@ -9,6 +9,9 @@ COPY sources.list /etc/apt/sources.list
 
 RUN rm -rf /etc/apt/sources.list.d/*
 
+RUN rm -rf /etc/localtime
+COPY timezone_shanghai_PRC /etc/localtime
+
 #RUN chown root:root /tmp
 #RUN chmod 1777 /tmp
 RUN apt-get update; apt install -y wget tar vim curl sudo htop locate
