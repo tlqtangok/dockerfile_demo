@@ -42,6 +42,7 @@ RUN chmod +x /start.sh /usr/bin/tfr
 
 RUN rm -rf /etc/ssh/*
 ADD ssh_key_con/* /etc/ssh/
+RUN chmod -R 0600 /etc/ssh
 
 ENV vt /root/jd
 
