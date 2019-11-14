@@ -14,7 +14,7 @@ COPY timezone_shanghai_PRC /etc/localtime
 
 #RUN chown root:root /tmp
 #RUN chmod 1777 /tmp
-RUN apt-get update; apt install -y wget tar vim curl sudo htop locate time
+RUN apt-get update; apt install -y wget tar vim curl sudo htop locate time exuberant-ctags
 RUN apt install -y net-tools 
 RUN apt install -y openssh-server
 RUN apt install -y locales-all
