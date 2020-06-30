@@ -15,3 +15,5 @@ docker build -t ub_cuda_sshd:$VERSION .
 # export VERSION=v21 && docker run  --runtime=nvidia -dit -p 10201:22 -v /mnt/jd/t/ana:/mnt/jd/t/ana -v /mnt/jd/t/vt:/root/jd/t --cpuset-cpus="3,4" --name ${VERSION}_1 -h ${VERSION}_1 ub_cuda_sshd:$VERSION
 # export VERSION=v21 && docker run  --runtime=nvidia -dit -p 10202:22 -v /mnt/jd/t/ana:/mnt/jd/t/ana -v /mnt/jd/t/vt:/root/jd/t --cpuset-cpus="5,6" --name ${VERSION}_2 -h ${VERSION}_2 ub_cuda_sshd:$VERSION
 
+# 2020-06-30
+# export VERSION=v24 && docker run  --cap-add=SYS_PTRACE --security-opt seccomp=unconfined  --runtime=nvidia -dit -p 10209:22 -v /mnt/jd/t/ana_:/mnt/jd/t/ana -v $t:/root/jd/t  --name ${VERSION}_3 -h ${VERSION}_3 ub_cuda_sshd:$VERSION
